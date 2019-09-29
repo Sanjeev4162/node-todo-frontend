@@ -1,4 +1,4 @@
-node('slave1'){
+node('jenkins'){
     
 	
 
