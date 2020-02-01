@@ -4,7 +4,7 @@ node('slave1'){
 
     env.AWS_ECR_LOGIN=true
     def newApp
-    def registry = 'ankush0727/microservices-node-todo-frontend'
+    def registry = 'ankush0727'
     def registryCredential = 'dockerhub'
 	
 	stage('Git') {
