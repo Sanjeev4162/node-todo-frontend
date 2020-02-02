@@ -20,12 +20,13 @@ node('slave1'){
         docker.withRegistry( 'https://' + registry, registryCredential ) {
 		    def buildName = registry + ":$BUILD_NUMBER"
 			newApp = docker.build buildName
-			newApp.push()
+			//newApp.push()
         }
 	}
 	stage('Registring image') {
-        docker.withRegistry( 'https://' + registry, registryCredential ) {
-    		newApp.push 'latest2'
+        //docker.withRegistry( 'https://' + registry, registryCredential ) {
+    	//	newApp.push 'latest2'
+		sh "docker push docker.io/ankushgupta0727/docker-test:$BUILD_NUMBER"
         }
 	}
     stage('Removing image') {
