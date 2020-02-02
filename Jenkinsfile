@@ -27,7 +27,7 @@ node('slave1'){
         //docker.withRegistry( 'https://' + registry, registryCredential ) {
     	//	newApp.push 'latest2'
 		sh "docker push docker.io/ankushgupta0727/docker-test:$BUILD_NUMBER"
-        }
+       // }
 	}
     stage('Removing image') {
         sh "docker rmi $registry:$BUILD_NUMBER"
