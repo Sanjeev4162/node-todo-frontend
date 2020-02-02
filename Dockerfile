@@ -1,7 +1,4 @@
-FROM node
-
-RUN apt-get update && apt-get upgrade -y \
-    && apt-get clean
+FROM node:10-alpine
 
 RUN mkdir /app
 WORKDIR /app
