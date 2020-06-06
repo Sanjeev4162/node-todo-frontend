@@ -13,10 +13,10 @@ node('slave1'){
 		git 'https://github.com/ankushgupta/node-todo-frontend'
 	}
 	stage('Build') {
-		sh 'npm install'
+		sh '/home/jenkins/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node/bin/npm install'
 	}
 	stage('Test') {
-		sh 'npm test'
+		sh '/home/jenkins/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node/bin/npm test'
 	}
 	stage('Building image') {
         docker.withRegistry( 'https://' + registry, registryCredential ) {
