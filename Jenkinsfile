@@ -9,14 +9,14 @@ node('slave1'){
     def registryCredential =  env.registryCredential
 	
 	stage('Git') {
-		npmHome = tool 'node'
+		//npmHome = tool 'node'
 		git 'https://github.com/ankushgupta/node-todo-frontend'
 	}
 	stage('Build') {
-		sh '/home/jenkins/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node/bin/npm install'
+		sh 'npm install'
 	}
 	stage('Test') {
-		sh '/home/jenkins/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node/bin/npm test'
+		sh 'npm test'
 	}
 	stage('Building image') {
         docker.withRegistry( 'https://' + registry, registryCredential ) {
