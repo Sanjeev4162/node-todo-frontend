@@ -9,7 +9,7 @@ node('master'){
     def registryCredential =  env.registryCredential
 	
 	stage('Git') {
-		//npmHome = tool 'node'
+		npmHome = tool 'node1'
 		git 'https://github.com/ankushgupta/node-todo-frontend'
 	}
 	stage('Build') {
