@@ -14,7 +14,7 @@ node('master'){
 	}
 	stage('Build') {
 		withEnv(['NPM_HOME=$npmHome']) {
-  		 sh 'npm install'
+  		 sh "$NPM_HOME/bin/npm install
 		}
 	}
 	stage('Test') {
