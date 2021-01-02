@@ -13,7 +13,9 @@ node('master'){
 		git 'https://github.com/ankushgupta/node-todo-frontend'
 	}
 	stage('Build') {
-		sh 'npm install'
+		withEnv(['NPM_HOME=$npmHome']) {
+  		 sh 'npm install'
+		}
 	}
 	stage('Test') {
 		sh 'npm test'
