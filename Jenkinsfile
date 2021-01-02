@@ -6,7 +6,7 @@ node('slave1'){
     def npmHome
     def newApp
     def registry = ankushgupta0727
-    def registryCredential =  registryCredential
+    def registryCredential =  'registryCredential'
 	
 	stage('Git') {
 		npmHome = tool 'node1'
