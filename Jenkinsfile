@@ -5,7 +5,7 @@ node('slave1'){
     env.AWS_ECR_LOGIN=true
     def npmHome
     def newApp
-    def registry = ankushgupta0727
+    def registry = 'ankushgupta0727'
     def registryCredential =  'registryCredential'
 	
 	stage('Git') {
