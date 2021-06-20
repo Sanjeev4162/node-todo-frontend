@@ -26,7 +26,7 @@ node('slave1'){
 		withCredentials([usernamePassword(credentialsId: 'registryCredential', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                sh "docker login -u=$USER -p=$PASS"
                sh "echo ankushgupta0727/docker-test:$BUILD_NUMBER "
-		sh "docker push docker.io/ankushgupta0727/docker-test:$BUILD_NUMBER"
+		sh "docker push ankushgupta0727/docker-test:$BUILD_NUMBER"
         }
 	}
     stage('Removing image') {
