@@ -1,15 +1,8 @@
-node('slave1'){
-    
-	
+node('slave1'){    
 
-    env.AWS_ECR_LOGIN=true
-    def npmHome
-    def newApp
-    def registry = 'ankushgupta0727/docker-test'
-    def registryCredential =  'registryCredential'
 	
 	stage('Git') {
-		npmHome = tool 'node1'
+		npmHome = tool 'nodejs16'
 		git 'https://github.com/ankushgupta/node-todo-frontend'
 	}
 	stage('Build') {
@@ -30,8 +23,11 @@ node('slave1'){
 	stage('Registring image') {
         //docker.withRegistry( 'https://' + registry, registryCredential ) {
     	//	newApp.push 'latest2'
+		withCredentials([usernamePassword(credentialsId: 'registryCredential', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+               sh "docker login -u=$USER -p=$PASS"
+               sh "echo ankushgupta0727/docker-test:$BUILD_NUMBER "
 		sh "docker push docker.io/ankushgupta0727/docker-test:$BUILD_NUMBER"
-       // }
+        }
 	}
     stage('Removing image') {
         sh "docker rmi $registry:$BUILD_NUMBER"
