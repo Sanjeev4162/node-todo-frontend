@@ -30,7 +30,7 @@ node('slave1'){
         }
 	}
     stage('Removing image') {
-        sh "docker rmi $registry:$BUILD_NUMBER"
+        sh "docker rmi ankushgupta0727/docker-test:$BUILD_NUMBER"
         //sh "docker rmi $registry:latest"
     }
     
