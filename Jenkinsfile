@@ -14,7 +14,7 @@ node('slave1'){
 	stage('Building image') {
        // docker.withRegistry( 'https://' + registry, registryCredential ) {
 	 ////	    def buildName = registry + ":$BUILD_NUMBER"
-	//		newApp = docker.build buildName
+	////		newApp = docker.build buildName
 			//newApp.push()
 		sh "docker build -t docker-test:$BUILD_NUMBER ."
 		sh "docker tag docker-test:$BUILD_NUMBER ankushgupta0727/docker-test:$BUILD_NUMBER"
