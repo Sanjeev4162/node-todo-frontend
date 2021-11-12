@@ -17,7 +17,7 @@ node('Master'){
 	////		newApp = docker.build buildName
 			//newApp.push()
 		sh "docker build -t docker-test:$BUILD_NUMBER ."
-		sh "docker tag docker-test:$BUILD_NUMBER ankushgupta0727/docker-test:$BUILD_NUMBER"
+		sh "docker tag docker-test:$BUILD_NUMBER Sanjeev4162/docker-test:$BUILD_NUMBER"
         ////}
 	}
 	stage('Registring image') {
