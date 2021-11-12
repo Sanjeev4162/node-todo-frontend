@@ -2,8 +2,8 @@ node('Master'){
 
 	
 	stage('Git') {
-		npmHome = tool 'nodejs16'
-		git 'https://github.com/ankushgupta/node-todo-frontend'
+		npmHome = tool 'NodeJS17'
+		git 'https://github.com/Sanjeev4162/node-todo-frontend'
 	}
 	stage('Build') {
   		 sh 'npm install'
