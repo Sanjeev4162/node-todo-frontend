@@ -5,9 +5,9 @@ node('Master'){
 		npmHome = tool 'NodeJS17'
 		git 'https://github.com/Sanjeev4162/node-todo-frontend'
 	}
-	// stage('Build') {
-  		// sh 'npm install'
-	//}
+	stage('Build') {
+  		sh 'npm install'
+	}
 	stage('Test') {
 		sh 'npm test'
 	}
